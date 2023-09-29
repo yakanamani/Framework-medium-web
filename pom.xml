@@ -1,0 +1,132 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.webFramework</groupId>
+  <artifactId>MediumWebFrameworkCorrection</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>MediumWebFrameworkCorrection</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+    <selenium.java.version>4.13.0</selenium.java.version>
+    <webdrivermanager.version>5.3.3</webdrivermanager.version>
+    <testng.version>7.8.0</testng.version>
+    <cucumber.java.version>7.14.0</cucumber.java.version>
+    <cucumber.testng.version>7.14.0</cucumber.testng.version>
+    <cucumber-picocontainer.version>7.14.0</cucumber-picocontainer.version>
+    <lombok.version>1.18.28</lombok.version>
+    <commons-io.version>2.11.0</commons-io.version>
+    <jackson-databind.version>2.15.2</jackson-databind.version>
+    <rest-assured.version>5.3.0</rest-assured.version>
+    <log4j-api.version>2.20.0</log4j-api.version>
+    <log4j-core.version>2.20.0</log4j-core.version>
+    <maven-surefire-plugin.version>3.1.0</maven-surefire-plugin.version>
+  </properties>
+
+  <dependencies>
+    <!-- =========      SELENIUM DEPENDENCIES     ========= -->
+    <!-- ***********  selenium java   *********** -->
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>${selenium.java.version}</version>
+    </dependency>
+    <!-- =========      DRIVER INITIALIZATION      ========= -->
+    <!--  ***********   WebdriverManager    *********** -->
+    <dependency>
+      <groupId>io.github.bonigarcia</groupId>
+      <artifactId>webdrivermanager</artifactId>
+      <version>${webdrivermanager.version}</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>${testng.version}</version>
+    </dependency>
+    <!-- ========     CUCUMBER DEPENDENCIES      ========= -->
+    <!-- ***********    cucumber java   *********** -->
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-java</artifactId>
+      <version>${cucumber.java.version}</version>
+    </dependency>
+    <!-- ***********   cucumber testng   ***********  -->
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-testng</artifactId>
+      <version>${cucumber.testng.version}</version>
+    </dependency>
+    <!-- ******  Cucumber PicoContainer: share state between steps  ****** -->
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-picocontainer</artifactId>
+      <version>${cucumber-picocontainer.version}</version>
+    </dependency>
+    <!-- ====== AUTOMATIC RESOURCE MANAGEMENT   ====== -->
+    <!-- **********    lombok    ************ -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>${lombok.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <!-- ====== FILES UTILS  ====== -->
+    <!-- **********     commons-io    ********** -->
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>${commons-io.version}</version>
+    </dependency>
+    <!-- **********    jackson-databind    ********** -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson-databind.version}</version>
+    </dependency>
+    <!-- ========= REST API   ========= -->
+    <!--  **********     Rest Assured    ************  -->
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>rest-assured</artifactId>
+      <version>${rest-assured.version}</version>
+    </dependency>
+    <!-- ==========      LOGS        ============== -->
+    <!--   **********     log4j-api     ************  -->
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
+      <version>${log4j-api.version}</version>
+    </dependency>
+    <!--  **********     log4j-core     ************  -->
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <version>${log4j-core.version}</version>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <plugins>
+      <!-- **********maven surefire:    ************ -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${maven-surefire-plugin.version}</version>
+        <configuration>
+          <suiteXmlFiles>
+            <suiteXmlFile>smoke-tests.xml</suiteXmlFile>
+          </suiteXmlFiles>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
